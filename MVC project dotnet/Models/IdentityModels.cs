@@ -31,5 +31,15 @@ namespace MVC_project_dotnet.Models
         {
             return new ApplicationDbContext();
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>().ToTable("TSNUsers");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("TSNUserClaims");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("TSNUserLogins");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("TSNUserRoles");
+            modelBuilder.Entity<IdentityRole>().ToTable("TSNRoles");
+        }
     }
 }

@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201812281000039_Item.Designer.cs">
       <DependentUpon>201812281000039_Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901031439295_ChangedtableName.cs" />
+    <Compile Include="Migrations\201901031439295_ChangedtableName.Designer.cs">
+      <DependentUpon>201901031439295_ChangedtableName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -359,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812281000039_Item.resx">
       <DependentUpon>201812281000039_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031439295_ChangedtableName.resx">
+      <DependentUpon>201901031439295_ChangedtableName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
