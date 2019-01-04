@@ -18,6 +18,12 @@ namespace MVC_project_dotnet.Models
         }
     }
 
+    public class ApplicationRole: IdentityRole
+    {
+        public ApplicationRole() : base() { }
+        public ApplicationRole(string roleName): base(roleName) { }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -41,5 +47,6 @@ namespace MVC_project_dotnet.Models
             modelBuilder.Entity<IdentityUserRole>().ToTable("TSNUserRoles");
             modelBuilder.Entity<IdentityRole>().ToTable("TSNRoles");
         }
+
     }
 }
