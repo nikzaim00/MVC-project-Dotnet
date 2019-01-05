@@ -10,6 +10,7 @@ namespace MVC_project_dotnet.Controllers
     {
         public ActionResult Index()
         {
+         
             return View();
         }
 
