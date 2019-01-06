@@ -17,7 +17,7 @@ namespace MVC_project_dotnet
         public int ItemID { get; set; }
         public string ItemName { get; set; }
         public string ItemDesc { get; set; }
-        public string ItemPicture { get; set; }
+        public byte[] ItemPicture { get; set; }
         public string Id { get; set; }
     
         public virtual TSNUser TSNUser { get; set; }
