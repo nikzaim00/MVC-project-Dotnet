@@ -46,6 +46,7 @@ namespace MVC_project_dotnet.Models
             modelBuilder.Entity<IdentityUserLogin>().ToTable("TSNUserLogins");
             modelBuilder.Entity<IdentityUserRole>().ToTable("TSNUserRoles");
             modelBuilder.Entity<IdentityRole>().ToTable("TSNRoles");
+            modelBuilder.Ignore<Item>();
         }
 
     }

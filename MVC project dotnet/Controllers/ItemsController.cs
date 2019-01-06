@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MVC_project_dotnet.Models;
+using MVC_project_dotnet;
 
 namespace MVC_project_dotnet.Controllers
 {
-    public class ItemController : Controller
+    public class ItemsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Entities5 db = new Entities5();
 
-        // GET: Item
-        public async Task<ActionResult> Index()
+        // GET: Items
+        public ActionResult Index()
         {
-            return View(await db.Items.ToListAsync());
+            var items = db.Items.Include(i => i.TSNUser);
+            return View(items.ToList());
         }
 
-        // GET: Item/Details/5
-        public async Task<ActionResult> Details(string id)
+        // GET: Items/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -36,68 +36,72 @@ namespace MVC_project_dotnet.Controllers
             return View(item);
         }
 
-        // GET: Item/Create
+        // GET: Items/Create
         public ActionResult Create()
         {
+            ViewBag.Id = new SelectList(db.TSNUsers, "Id", "Email");
             return View();
         }
 
-        // POST: Item/Create
+        // POST: Items/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ItemID,ItemName,ItemDesc")] Item item)
+        public ActionResult Create([Bind(Include = "ItemID,ItemName,ItemDesc,ItemPicture,Id")] Item item)
         {
             if (ModelState.IsValid)
             {
                 db.Items.Add(item);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Id = new SelectList(db.TSNUsers, "Id", "Email", item.Id);
             return View(item);
         }
 
-        // GET: Item/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        // GET: Items/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Id = new SelectList(db.TSNUsers, "Id", "Email", item.Id);
             return View(item);
         }
 
-        // POST: Item/Edit/5
+        // POST: Items/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ItemID,ItemName,ItemDesc")] Item item)
+        public ActionResult Edit([Bind(Include = "ItemID,ItemName,ItemDesc,ItemPicture,Id")] Item item)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(item).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Id = new SelectList(db.TSNUsers, "Id", "Email", item.Id);
             return View(item);
         }
 
-        // GET: Item/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        // GET: Items/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -105,14 +109,14 @@ namespace MVC_project_dotnet.Controllers
             return View(item);
         }
 
-        // POST: Item/Delete/5
+        // POST: Items/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             db.Items.Remove(item);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

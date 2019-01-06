@@ -12,15 +12,15 @@ namespace MVC_project_dotnet
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUsers
+    public partial class TSNUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetUsers()
+        public TSNUser()
         {
-            this.AspNetUserClaims = new HashSet<AspNetUserClaims>();
-            this.AspNetUserLogins = new HashSet<AspNetUserLogins>();
-            this.AspNetRoles = new HashSet<AspNetRoles>();
-            this.Items = new HashSet<Items>();
+            this.Items = new HashSet<Item>();
+            this.TSNUserClaims = new HashSet<TSNUserClaim>();
+            this.TSNUserLogins = new HashSet<TSNUserLogin>();
+            this.TSNRoles = new HashSet<TSNRole>();
         }
     
         public string Id { get; set; }
@@ -37,12 +37,12 @@ namespace MVC_project_dotnet
         public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual ICollection<TSNUserClaim> TSNUserClaims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetRoles> AspNetRoles { get; set; }
+        public virtual ICollection<TSNUserLogin> TSNUserLogins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Items> Items { get; set; }
+        public virtual ICollection<TSNRole> TSNRoles { get; set; }
     }
 }

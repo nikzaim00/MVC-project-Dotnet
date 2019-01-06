@@ -12,13 +12,12 @@ namespace MVC_project_dotnet
     using System;
     using System.Collections.Generic;
     
-    public partial class Items
+    public partial class TSNUserLogin
     {
-        public string ItemID { get; set; }
-        public string ItemName { get; set; }
-        public string ItemDesc { get; set; }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
         public string UserId { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual TSNUser TSNUser { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace MVC_project_dotnet
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities4 : DbContext
+    public partial class Entities5 : DbContext
     {
-        public Entities4()
-            : base("name=Entities4")
+        public Entities5()
+            : base("name=Entities5")
         {
         }
     
@@ -25,11 +25,10 @@ namespace MVC_project_dotnet
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<Items> Items { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<TSNRole> TSNRoles { get; set; }
+        public virtual DbSet<TSNUserClaim> TSNUserClaims { get; set; }
+        public virtual DbSet<TSNUserLogin> TSNUserLogins { get; set; }
+        public virtual DbSet<TSNUser> TSNUsers { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MVC_project_dotnet.Models.Item>
+﻿@model IEnumerable<MVC_project_dotnet.Item>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Items</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -16,6 +16,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ItemDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TSNUser.Email)
         </th>
         <th></th>
     </tr>
@@ -29,6 +35,12 @@
             @Html.DisplayFor(modelItem => item.ItemDesc)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ItemPicture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TSNUser.Email)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
@@ -37,7 +49,3 @@
 }
 
 </table>
-
-<p>
-    @Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal")
-</p>

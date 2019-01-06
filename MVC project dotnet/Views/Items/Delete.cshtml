@@ -1,4 +1,4 @@
-﻿@model MVC_project_dotnet.Models.Item
+﻿@model MVC_project_dotnet.Item
 
 @{
     ViewBag.Title = "Delete";
@@ -25,6 +25,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.ItemDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSNUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSNUser.Email)
         </dd>
 
     </dl>
