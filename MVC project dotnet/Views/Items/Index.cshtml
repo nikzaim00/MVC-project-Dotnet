@@ -17,9 +17,12 @@
         <th>
             @Html.DisplayNameFor(model => model.ItemDesc)
         </th>
+        @*
         <th>
+           
             @Html.DisplayNameFor(model => model.ItemPicture)
-        </th>
+           
+         </th>*@
         <th>
             @Html.DisplayNameFor(model => model.TSNUser.Email)
         </th>
@@ -34,9 +37,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.ItemDesc)
         </td>
-        <td>
+       @* <td>
             @Html.DisplayFor(modelItem => item.ItemPicture)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.TSNUser.Email)
         </td>
